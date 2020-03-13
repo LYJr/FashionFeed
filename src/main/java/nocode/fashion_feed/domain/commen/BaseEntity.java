@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +21,6 @@ public class BaseEntity {
     private String userId;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private FeedState state;
 }

@@ -8,7 +8,6 @@ import nocode.fashion_feed.domain.commen.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table
