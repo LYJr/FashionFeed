@@ -1,6 +1,5 @@
-package nocode.fashion_feed.domain.commen;
+package nocode.fashion_feed.domain.common;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -10,7 +9,6 @@ import javax.persistence.*;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class BaseEntity {
     @Id
@@ -22,5 +20,14 @@ public class BaseEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private FeedState state;
+    private CommonState state;
+
+    public BaseEntity(String userId) {
+        this.userId = userId;
+    }
+
+    public BaseEntity(String userId, CommonState state) {
+        this.userId = userId;
+        this.state = state;
+    }
 }
