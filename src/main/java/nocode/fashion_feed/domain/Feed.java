@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import nocode.fashion_feed.domain.common.BaseEntity;
 import nocode.fashion_feed.domain.common.CommonState;
+import nocode.fashion_feed.dto.FindAllFeedDto;
 
 import javax.persistence.*;
 
@@ -18,8 +19,9 @@ import javax.persistence.*;
 public class Feed extends BaseEntity {
 
     @Column
-    private String Contents;
+    private String contents;
 
+    //todo : MultipartFile로 변경해서 파일 등록 진행해야함.
     @Column
     private String mdPhoto;
 
@@ -28,8 +30,14 @@ public class Feed extends BaseEntity {
 
     public Feed(String userId, String contents, String mdPhoto, String mdName) {
         super(userId, CommonState.PERMIT);
-        this.Contents = contents;
+        this.contents = contents;
         this.mdPhoto = mdPhoto;
         this.mdName = mdName;
+    }
+
+    public void update(Feed feed) {
+        this.contents = feed.contents;
+        this.mdPhoto = feed.mdPhoto;
+        this.mdName = feed.mdName;
     }
 }

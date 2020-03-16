@@ -13,7 +13,6 @@
 //
 //    public CommonResponse shared(String userId) {
 //
-//
 //        return null;
 //    }
 //}

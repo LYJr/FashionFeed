@@ -3,17 +3,15 @@ package nocode.fashion_feed.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
+import nocode.fashion_feed.domain.Feed;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class FindAllFeedDto {
 
     private Long id;
     private String userId;
-    private String Contents;
+    private String contents;
 
     private String mdPhoto;
 
@@ -21,5 +19,16 @@ public class FindAllFeedDto {
     private Long likeAmount;
     private Long sharedAmount;
 
+    public FindAllFeedDto(Feed feed, Long likeAmount) {
+        this.id = feed.getId();
+        this.userId = feed.getUserId();
+        this.contents = feed.getContents();
+        this.mdPhoto = feed.getMdPhoto();
+        this.mdName = feed.getMdName();
+        this.likeAmount = likeAmount;
+    }
 
+    public void setAmount(long likeAmount){
+        this.likeAmount = likeAmount;
+    }
 }

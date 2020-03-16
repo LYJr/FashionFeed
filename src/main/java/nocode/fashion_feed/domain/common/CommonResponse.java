@@ -21,6 +21,10 @@ public class CommonResponse <T> {
                 .message(bindingMessage(bindingResult)).build();
     }
 
+    public static <T>CommonResponse delete(String message){
+        return builder().message(message).build();
+    }
+
     private static String bindingField(BindingResult bindingResult) {
         return bindingResult.getFieldError().getField();
     }
@@ -28,4 +32,5 @@ public class CommonResponse <T> {
     private static String bindingMessage(BindingResult bindingResult) {
         return bindingResult.getFieldError().getDefaultMessage();
     }
+
 }
