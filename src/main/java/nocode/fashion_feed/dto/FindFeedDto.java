@@ -3,6 +3,7 @@ package nocode.fashion_feed.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import nocode.fashion_feed.domain.Comment;
 
 import java.util.List;
 
@@ -12,11 +13,11 @@ import java.util.List;
 public class FindFeedDto {
     private Long id;
     private String userId;
-    private String Contents;
+    private String contents;
     private String mdPhoto;
     private String mdName;
-//    private List<Comment> comment;
+
+    private List<List<Comment>> comment;
 //    private FeedLike feedLike;
 //    private Shared shared;
-
 }
